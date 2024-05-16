@@ -40,6 +40,45 @@
         margin: 40px;
 
         /* CSS GRID */
+        display: grid;
+        /* 
+        Pixels -> Exact (can overflow), doesn't change - Explicit
+        Fr --> Flexible (Fractional) Units - Implicit
+        auto --> Takes whatever it requires to fill its content - Implicit
+        */
+        /* grid-template-columns: 200px 200px 1fr 1fr; */
+        /* grid-template-rows: 300px 200px; */
+        /* grid-template-columns: 1fr 1fr 1fr auto; */
+        grid-template-columns: repeat(4, 1fr);
+        grid-template-rows: 1fr 1fr;
+        /* height: 500px; */
+
+        /* Only able to space it using gap, can't use margins */
+        /* gap: 30px; */
+        column-gap: 20px;
+        row-gap: 40px;
+
+        /* TEMP */
+        display: none;
+      }
+
+      .el--8 {
+        /* Start at Column 2, end at Column 3 */
+        grid-column: 2 / 3;
+        /* grid-row: 1 / span 2; */
+        grid-row: 1 / 2;
+      }
+
+      .el--2 {
+        /* If bigger than +1, it goes across cells */
+        /* Can also say -- span 3, to just go across 3 */
+        /* grid-column: 1 / span 4; */
+        grid-column: 1 / -1;
+        grid-row: 2 / 3;
+      }
+
+      .el--6 {
+        /* grid-row: 3 / 5; */
       }
 
       .container--2 {
@@ -47,12 +86,32 @@
         font-family: sans-serif;
         background-color: black;
         font-size: 40px;
-        margin: 100px;
+        margin: 40px;
 
-        width: 1000px;
+        width: 700px;
         height: 600px;
 
         /* CSS GRID */
+        display: grid;
+        grid-template-columns: 125px 200px 125px;
+        grid-template-rows: 250px 100px;
+        gap: 50px;
+
+        /* Aligning Tracks inside Container:
+        Distribute Empty Space */
+        justify-content: center;
+        /* justify-content: space-between; */
+        align-content: center;
+
+        /* Aligning Items Inside Cells:
+        moving items around inside cells */
+        align-items: end;
+        justify-items: end;
+      }
+
+      .el--3 {
+        align-self: center;
+        justify-self: center;
       }
     </style>
   </head>
