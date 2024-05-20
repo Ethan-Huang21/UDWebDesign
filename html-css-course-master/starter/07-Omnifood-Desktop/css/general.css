@@ -23,8 +23,8 @@ Paragraph Default: 1.6
 
 --- 02 COLORS
 Primary: #e67e22
-Tints: #fdf2e9 | #fae5d3
-Shades: #cf711f;
+Tints: #fdf2e9 | #fae5d3 | #eb984e
+Shades: #cf711f | #45260a
 Accents:
 Greys: #555 | #333 | #6f6f6f
 
@@ -101,6 +101,11 @@ body {
     grid-template-columns: repeat(4, 1fr);
 }
 
+.grid--5-cols {
+    grid-template-columns: repeat(5, 1fr);
+}
+
+
 .grid--center-v {
     align-items: center;
 }
@@ -142,7 +147,7 @@ body {
     letter-spacing: 0.75px;
 }
 
-.btn:link, .btn:visited {
+.btn, .btn:link, .btn:visited {
     font-size: 2rem;
     padding: 1.6rem 3.2rem;
     text-decoration: none;
@@ -152,6 +157,11 @@ body {
 
     /* Put transition on original "state" */
     transition: all 0.3s;
+
+    /* Only necessary for .btn */
+    border: none;
+    cursor: pointer;
+    font-family: inherit;
 }
 
 .btn--full:link, .btn--full:visited {
@@ -174,6 +184,19 @@ body {
     /* border: 3px solid #fff; */
     /* trick to add border inside -- add shadow inside */
     box-shadow: inset 0 0 0 3px #fff;
+}
+
+.btn--form {
+    background-color: #45260a;
+    color: #fdf2e9;
+    align-self: end;
+    /* overwrite .btn padding */
+    padding: 1.2rem;
+}
+
+.btn--form:hover {
+    background-color: #fff;
+    color: #555;
 }
 
 .link:link, .link:visited {
@@ -210,6 +233,19 @@ body {
     width: 3rem;
     height: 3rem;
     color: #e67e22;
+}
+
+/* Modify outline when clicking on items or tab */
+*:focus {
+    /* Only setting it to none is bad for accessibility */
+    outline: none;
+
+    /* Doesn't quite wrap as well */
+    /* outline: 4px dotted #e67e22;
+    outline-offset: 8px; */
+
+    /* Trick to add border inside */
+    box-shadow: 0 0 0 0.8rem rgba(230, 125, 34, 0.5);
 }
 
 /* HELPER / SETTING CLASSES */
